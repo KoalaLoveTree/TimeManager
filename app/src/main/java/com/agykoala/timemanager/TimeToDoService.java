@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
-import android.widget.Toast;
 
 import com.agykoala.timemanager.DB.EventDTO;
 
@@ -56,6 +55,7 @@ public class TimeToDoService extends Service {
                 Realm readData = Realm.getDefaultInstance();
                 EventDTO eventsDTO;
                 while (true) {
+                    readData.refresh();
                     Notification.Builder builder = new Notification.Builder(getApplicationContext());
 
                     Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
